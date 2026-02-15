@@ -3,29 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <title>Age Calculator</title>
-    <link rel="icon" type="image/png" href="Pro.png">
+  <link rel="icon" type="image/png" href="Pro.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <!-- Google Font: Inter (bold & clean) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --footer-height: 64px; /* change if you want taller footer */
+      --footer-height: 70px;
     }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       background: #f3f4f6;
-      margin: 0;
-      padding: 0;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       overflow-x: hidden;
     }
-
-    /* navbar */
-    nav { position: fixed; top:0; left:0; right:0; z-index:30; }
+    /* new navbar style (replaces old) */
+    .new-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02), 0 2px 6px rgba(0,0,0,0.02);
+      padding: 0.6rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo-blue {
+      color: #007BFF;
+      font-weight: 800;
+      font-size: 1.9rem;
+      letter-spacing: -0.5px;
+    }
+    .logo-orange {
+      color: #FF6F00;
+      font-weight: 800;
+      font-size: 1.9rem;
+      letter-spacing: -0.5px;
+    }
+    .whatsapp-nav {
+      background-color: #25D366;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.2s;
+      box-shadow: 0 6px 12px rgba(37,211,102,0.2);
+      text-decoration: none;
+    }
+    .whatsapp-nav:hover {
+      transform: scale(1.12);
+      box-shadow: 0 10px 18px rgba(37,211,102,0.35);
+    }
 
     /* main container */
     .main-container {
@@ -33,45 +76,53 @@
       max-width: 520px;
       margin: 0 auto;
       padding: 20px 16px;
-      box-sizing: border-box;
       padding-top: 96px; /* space for navbar */
-      padding-bottom: calc(var(--footer-height) + 24px); /* keep space for footer */
+      padding-bottom: calc(var(--footer-height) + 24px);
       flex: 1 0 auto;
     }
 
-    /* CNDF WhatsApp Icon */
-    .whatsapp-btn {
-      width: 46px; height: 46px; border-radius: 12px;
-      background: #25D366; color: white; display: flex;
-      justify-content: center; align-items: center;
-      box-shadow: 0 6px 18px rgba(0,0,0,.18); transition: 0.18s;
-      z-index: 40;
+    /* floating whatsapp (kept, but color matches) */
+    .whatsapp-float {
+      background-color: #25D366;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-size: 2rem; box-shadow: 0 8px 20px rgba(37,211,102,0.3);
+      transition: transform 0.2s;
+      text-decoration: none;
     }
-    .whatsapp-btn:hover{ transform: scale(1.06); }
+    .whatsapp-float:hover { transform: scale(1.1); }
 
-    /* Beat */
+    /* Beat animation */
     @keyframes beat { 0%{transform:scale(1)}50%{transform:scale(1.07)}100%{transform:scale(1)} }
     .beat{ animation: beat 2s infinite; }
 
-    /* loader bars */
+    /* loader bars unchanged */
     .bars { display:flex; gap:6px; justify-content:center; margin-top:10px; }
     .bar{ width:6px; height:12px; background:#6366f1; animation:pulse 1s infinite; border-radius:4px; }
     @keyframes pulse { 0%,100%{height:12px;} 50%{height:48px;} }
 
-    /* footer normal style */
+    /* footer exactly as requested: Design by Pro Developing (yellow) */
     footer {
-      background: #111827;
+      background: #0f172a;
       color: white;
       height: var(--footer-height);
-      display:flex;
-      align-items:center;
-      justify-content:center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 0 12px;
       box-sizing: border-box;
       flex-shrink: 0;
+      font-size: 1rem;
+    }
+    .design-footer {
+      color: #94a3b8;
+    }
+    .design-footer .yellow {
+      color: #fbbf24;
+      font-weight: 700;
     }
 
-    /* FIX: on small screens make footer fixed to bottom so always visible */
+    /* on mobile, footer fixed */
     @media (max-width: 768px) {
       footer {
         position: fixed;
@@ -80,27 +131,25 @@
         bottom: 0;
         z-index: 35;
       }
-      /* ensure main has enough bottom padding (already set) */
     }
-
-    /* desktop footer left as normal flow (keeps below content) */
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="bg-white shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 h-16 flex justify-between items-center">
-      <span class="text-xl font-bold text-indigo-600">Pro <span class="text-gray-800">Deweloping.</span></span>
-      <a id="waTop" class="whatsapp-btn beat" title="Chat on WhatsApp" href="#" role="button">
-        <i class="fa-brands fa-whatsapp fa-lg"></i>
-      </a>
+  <!-- 🔵🟠 NEW NAVBAR: Pro (blue) + Developing (orange) + WhatsApp icon (green) -->
+  <nav class="new-nav">
+    <div class="flex items-center">
+      <span class="logo-blue">Pro </span>
+      <span class="logo-orange">Developing</span>
     </div>
+    <a id="waTop" class="whatsapp-nav beat" href="#" title="Chat on WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
   </nav>
 
-  <!-- MAIN -->
+  <!-- MAIN CONTENT (Age calculator, but BUTTON replaced with gradient) -->
   <main class="main-container">
-    <div class="bg-white p-6 shadow-md rounded-lg">
+    <div class="bg-white p-6 shadow-xl rounded-2xl">
       <h1 class="text-2xl font-bold text-center mb-4">Age Calculator</h1>
       <p class="text-gray-600 text-center mb-4">DD / Month / YYYY enter karein</p>
 
@@ -110,7 +159,12 @@
         <input type="number" id="year" placeholder="YYYY" class="p-2 border rounded text-center" />
       </div>
 
-      <button onclick="calculateAge()" class="bg-indigo-600 text-white w-full py-2 rounded hover:bg-indigo-700 transition">Calculate Age</button>
+      <!-- GRADIENT BUTTON (replaced old indigo button) with blue🟠orange gradient, rounded, shadow, hover animation -->
+      <button onclick="calculateAge()" 
+              class="w-full py-3 rounded-full text-white font-bold text-lg shadow-lg transition-all duration-300 hover:translate-y-[-4px] hover:shadow-xl"
+              style="background: linear-gradient(145deg, #007BFF, #FF6F00); background-size: 150% auto;">
+        Calculate Age
+      </button>
 
       <div id="loader" class="bars hidden">
         <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
@@ -123,15 +177,18 @@
     </div>
   </main>
 
-  <!-- Footer (fixed on mobile) -->
+  <!-- FOOTER (exact: Design by Pro Developing, with yellow) -->
   <footer>
-    <div class="max-w-7xl w-full mx-auto text-center text-sm">
-      © Powered by <a href="https://www.prodeveloping.online/" target="_blank" class="underline text-indigo-400">Pro DeweloPinG.</a>
-    </div>
-  </footer>
+  <div class="design-footer">
+    Design by 
+    <a href="https://www.prodeveloping.online" target="_blank" class="yellow" style="text-decoration:none;">
+      Pro Developing
+    </a>
+  </div>
+</footer>
 
-  <!-- Floating WhatsApp (bottom-right) - keeps above footer -->
-  <a id="waFloating" class="whatsapp-btn beat" href="#" style="position:fixed; right:16px; bottom: calc(var(--footer-height) + 16px); z-index:45;" title="Chat on WhatsApp">
+  <!-- Floating WhatsApp (bottom-right, same style as navbar) -->
+  <a id="waFloating" class="whatsapp-float beat" href="#" style="position:fixed; right:16px; bottom: calc(var(--footer-height) + 16px); z-index:45;" title="Chat on WhatsApp">
     <i class="fa-brands fa-whatsapp fa-2x"></i>
   </a>
 
@@ -145,7 +202,7 @@
     monthsList.forEach((m,i)=> month.innerHTML += `<option value="${i+1}">${m}</option>`);
   })();
 
-  // WhatsApp open with message
+  // WhatsApp open with message (same number)
   const waNumber = '916356952788';
   const waMessage = encodeURIComponent('Hello! I am using your Age Calculator 😊');
 
@@ -158,7 +215,7 @@
     window.open(`https://wa.me/${waNumber}?text=${waMessage}`, '_blank');
   });
 
-  // calculator
+  // calculator function (unchanged)
   function calculateAge(){
     const d = document.getElementById('day').value;
     const m = document.getElementById('month').value;
@@ -178,13 +235,12 @@
       if(days < 0){ months--; days += new Date(now.getFullYear(), now.getMonth(), 0).getDate(); }
       if(months < 0){ years--; months += 12; }
 
-      document.getElementById('resultText').innerHTML = `<span style="color:red">${years}</span> Years, ${months} Months, ${days} Days`;
+      document.getElementById('resultText').innerHTML = `<span style="color:#007BFF">${years}</span> Years, ${months} Months, ${days} Days`;
       document.getElementById('resultBox').classList.remove('hidden');
-      // scroll into view a bit so result visible above footer on small screens
       document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 800);
   }
 </script>
 
 </body>
-    </html>
+</html>
