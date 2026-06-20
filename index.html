@@ -3,13 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Age Calculator · Pro Toolss</title>
-
-  <!-- ========== SEO ADDED ========== -->
+  <title>Age Calculator · Pro Toolss | Pro Age calculator</title>
   <meta name="description" content="Calculate your exact age in years, months, and days with our free Age Calculator. Fast, accurate, and mobile-friendly.">
   <link rel="canonical" href="https://www.protoolss.online/age-calculator" />
-
-  <!-- ========== SEO ADDED: Open Graph ========== -->
   <meta property="og:title" content="Age Calculator · Pro Toolss" />
   <meta property="og:description" content="Calculate your exact age in years, months, and days with our free Age Calculator. Fast, accurate, and mobile-friendly." />
   <meta property="og:url" content="https://www.protoolss.online/age-calculator" />
@@ -17,18 +13,13 @@
   <meta property="og:image" content="https://www.protoolss.online/Pro.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-
-  <!-- ========== SEO ADDED: Twitter Card ========== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Age Calculator · Pro Toolss" />
   <meta name="twitter:description" content="Calculate your exact age in years, months, and days with our free Age Calculator. Fast, accurate, and mobile-friendly." />
   <meta name="twitter:image" content="https://www.protoolss.online/Pro.png" />
-
   <link rel="icon" type="image/png" href="https://i.ibb.co/FkJPMZ8r/Chat-GPT-Image-Jun-18-2026-07-58-22-AM.png">
-  <!-- Tailwind + Font Awesome -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google Font: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -45,8 +36,6 @@
     :root {
       --footer-height: 70px;
     }
-
-    /* --- ORIGINAL NAVBAR (restored) --- */
     .new-nav {
       position: fixed;
       top: 0;
@@ -61,20 +50,8 @@
       align-items: center;
       justify-content: space-between;
     }
-    .logo-blue {
-      color: #007BFF;
-      font-weight: 800;
-      font-size: 1.9rem;
-      letter-spacing: -0.5px;
-    }
-    .logo-orange {
-      color: #FF6F00;
-      font-weight: 800;
-      font-size: 1.9rem;
-      letter-spacing: -0.5px;
-    }
-
-    /* main container - FIXED: Centered on mobile */
+    .logo-blue { color: #007BFF; font-weight: 800; font-size: 1.9rem; letter-spacing: -0.5px; }
+    .logo-orange { color: #FF6F00; font-weight: 800; font-size: 1.9rem; letter-spacing: -0.5px; }
     .main-container {
       width: 100%;
       max-width: 540px;
@@ -85,11 +62,9 @@
       flex: 1 0 auto;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Center vertically */
-      align-items: center; /* Center horizontally */
+      justify-content: center;
+      align-items: center;
     }
-
-    /* Ensure the glass card takes full width but stays centered */
     .glass-card {
       width: 100%;
       background: rgba(255,255,255,0.9);
@@ -98,16 +73,12 @@
       border: 1px solid rgba(255,255,255,0.5);
       box-shadow: 0 20px 50px -12px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.01);
     }
-
-    /* loader bars */
     .bars { display:flex; gap:8px; justify-content:center; margin-top:14px; }
     .bar { width:7px; height:14px; background: linear-gradient(180deg, #0077FF, #FF6A00); border-radius: 8px; animation:pulse 1.2s infinite; }
     .bar:nth-child(2){ animation-delay: 0.2s; }
     .bar:nth-child(3){ animation-delay: 0.4s; }
     .bar:nth-child(4){ animation-delay: 0.6s; }
     @keyframes pulse { 0%,100%{height:14px;} 50%{height:50px;} }
-
-    /* footer – "Design by Pro Toolss" with underline */
     footer {
       background: #0b1426;
       color: white;
@@ -120,9 +91,7 @@
       font-size: 1rem;
       border-top: 1px solid rgba(255,255,255,0.04);
     }
-    .design-footer {
-      color: #94a3b8;
-    }
+    .design-footer { color: #94a3b8; }
     .design-footer .highlight {
       color: #facc15;
       font-weight: 700;
@@ -133,21 +102,10 @@
       text-decoration-color: #facc15;
       transition: color 0.2s, text-decoration-color 0.2s;
     }
-    .design-footer .highlight:hover {
-      color: #fde047;
-      text-decoration-color: #fde047;
-    }
-
+    .design-footer .highlight:hover { color: #fde047; text-decoration-color: #fde047; }
     @media (max-width: 768px) {
-      footer {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 35;
-      }
+      footer { position: fixed; left: 0; right: 0; bottom: 0; z-index: 35; }
     }
-
     select, input {
       background: rgba(255,255,255,0.7);
       border: 1.5px solid #e9edf2;
@@ -172,11 +130,7 @@
       box-shadow: 0 16px 36px rgba(0,119,255,0.35);
       background-position: right center;
     }
-    .gradient-btn:active {
-      transform: scale(0.97);
-    }
-
-    /* Home Button - 3 lines + "Home" text */
+    .gradient-btn:active { transform: scale(0.97); }
     .home-btn {
       background: transparent;
       border: none;
@@ -191,10 +145,7 @@
       transition: all 0.2s ease;
       text-decoration: none;
     }
-    .home-btn:hover {
-      background: rgba(0,0,0,0.04);
-      transform: scale(1.02);
-    }
+    .home-btn:hover { background: rgba(0,0,0,0.04); transform: scale(1.02); }
     .home-btn .lines {
       display: flex;
       flex-direction: column;
@@ -209,9 +160,7 @@
       border-radius: 4px;
       transition: all 0.25s ease;
     }
-    .home-btn:hover .lines span {
-      background: #0077FF;
-    }
+    .home-btn:hover .lines span { background: #0077FF; }
     .home-btn .label {
       font-size: 0.6rem;
       font-weight: 700;
@@ -221,20 +170,16 @@
       margin-top: 2px;
       transition: color 0.2s;
     }
-    .home-btn:hover .label {
-      color: #0077FF;
-    }
+    .home-btn:hover .label { color: #0077FF; }
   </style>
 </head>
 <body>
-
-  <!-- ORIGINAL NAVBAR: Pro Developing + Home Button (3 lines + "Home") -->
+  <!-- ========== NAVBAR: Pro Toolss (changed from Pro Developing) ========== -->
   <nav class="new-nav">
     <div class="flex items-center gap-0.5">
-      <span class="logo-blue">Pro</span>
-      <span class="logo-orange"> Developing</span>
+      <span class="logo-blue">Pro  </span>
+      <span class="logo-orange">    Toolss</span>
     </div>
-    <!-- Home Button with 3 lines + "Home" text -->
     <button id="homeBtn" class="home-btn" aria-label="Home">
       <div class="lines">
         <span></span>
@@ -245,7 +190,6 @@
     </button>
   </nav>
 
-  <!-- MAIN CONTENT - FIXED: Centered on mobile -->
   <main class="main-container">
     <div class="glass-card p-7 rounded-3xl shadow-2xl">
       <div class="text-center mb-5">
@@ -255,7 +199,6 @@
         <p class="text-sm text-gray-500 mt-1 font-medium">DD / Month / YYYY</p>
       </div>
 
-      <!-- Date inputs -->
       <div class="grid grid-cols-3 gap-3 mb-5">
         <select id="day" class="p-3 rounded-xl border text-gray-700 text-sm font-medium">
           <option value="">DD</option>
@@ -267,18 +210,15 @@
                class="p-3 rounded-xl border text-center text-gray-700 text-sm font-medium" />
       </div>
 
-      <!-- GRADIENT BUTTON -->
       <button onclick="calculateAge()" 
               class="gradient-btn w-full py-3.5 rounded-2xl text-white font-bold text-lg shadow-xl transition-all duration-300">
         <i class="fa-regular fa-calendar-check mr-2"></i> Calculate Age
       </button>
 
-      <!-- Loader -->
       <div id="loader" class="bars hidden">
         <div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div>
       </div>
 
-      <!-- Result box -->
       <div id="resultBox" class="hidden mt-5 p-5 rounded-2xl bg-gradient-to-br from-slate-50 to-gray-100 border border-gray-200/70 shadow-inner">
         <h3 class="text-md font-semibold text-gray-600 uppercase tracking-wide flex items-center gap-2">
           <i class="fa-regular fa-clock text-[#0077FF]"></i> Your Age
@@ -288,11 +228,9 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="design-footer">
       Design by 
-      <!-- ========== SECURITY ADDED: rel="noopener noreferrer" ========== -->
       <a href="https://www.protoolss.online" target="_blank" rel="noopener noreferrer" class="highlight">
         Pro Toolss
       </a>
@@ -300,7 +238,6 @@
   </footer>
 
 <script>
-  // Fill day & month dropdowns
   (function fillDate() {
     const day = document.getElementById('day');
     const month = document.getElementById('month');
@@ -314,27 +251,22 @@
     });
   })();
 
-  // Home Button - navigates to protoolss.online
   document.getElementById('homeBtn').addEventListener('click', function() {
     window.location.href = 'https://www.protoolss.online';
   });
 
-  // ========== FIXED: Helper function to check invalid dates (31 Feb, 31 Apr, etc.) ==========
   function isValidDate(day, month, year) {
-    // month is 1-indexed (1 = January)
-    const daysInMonth = new Date(year, month, 0).getDate(); // month is 1-indexed, so passing month gives last day of previous month
+    const daysInMonth = new Date(year, month, 0).getDate();
     return day <= daysInMonth;
   }
 
-  // ========== FIXED: Enter key support - trigger calculation on Enter in year field ==========
   document.getElementById('year').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-      e.preventDefault(); // Prevent form submission if any
+      e.preventDefault();
       calculateAge();
     }
   });
 
-  // ---------- AGE CALCULATOR (FIXED) ----------
   function calculateAge() {
     const dayEl = document.getElementById('day');
     const monthEl = document.getElementById('month');
@@ -344,7 +276,6 @@
     const m = parseInt(monthEl.value, 10);
     const y = yearEl.value.trim();
 
-    // ========== FIXED: Better validation messages ==========
     if (!d || !m || !y) {
       alert('Please enter complete date (DD, Month, YYYY)');
       return;
@@ -353,24 +284,20 @@
     const yearNum = Number(y);
     const currentYear = new Date().getFullYear();
 
-    // ========== FIXED: Year range validation ==========
     if (yearNum < 1900 || yearNum > currentYear) {
       alert(`Please enter a valid year between 1900 and ${currentYear}`);
       return;
     }
 
-    // ========== FIXED: Invalid date validation (31 Feb, 31 Apr, etc.) ==========
     if (!isValidDate(d, m, yearNum)) {
       alert(`Invalid date: ${d}/${m}/${yearNum}. Please check the day and month combination.`);
       return;
     }
 
-    // ========== FIXED: Future date validation ==========
     const today = new Date();
     const todayDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-    const birthDate = new Date(yearNum, m - 1, d); // month is 0-indexed in JS
+    const birthDate = new Date(yearNum, m - 1, d);
 
-    // Ensure the birth date is valid and not in the future
     if (birthDate > todayDate) {
       alert('Future dates are not allowed. Please enter a past date.');
       return;
@@ -385,26 +312,21 @@
     setTimeout(() => {
       loader.classList.add('hidden');
 
-      // ========== FIXED: Accurate age calculation ==========
       let years = today.getFullYear() - birthDate.getFullYear();
       let months = today.getMonth() - birthDate.getMonth();
       let days = today.getDate() - birthDate.getDate();
 
-      // Adjust for negative days
       if (days < 0) {
         months--;
-        // Get the last day of the previous month
         const prevMonthDate = new Date(today.getFullYear(), today.getMonth(), 0);
         days += prevMonthDate.getDate();
       }
 
-      // Adjust for negative months
       if (months < 0) {
         years--;
         months += 12;
       }
 
-      // Edge case: if days is still negative (should not happen, but safety)
       if (days < 0) {
         months--;
         const prevMonthDate = new Date(today.getFullYear(), today.getMonth(), 0);
@@ -415,7 +337,6 @@
         }
       }
 
-      // Final safety check: if years is negative, set to 0
       if (years < 0) {
         years = 0;
         months = 0;
